@@ -8,6 +8,8 @@ jobs:
       - name: "Hello World"
         run: echo "Hello World!"
   goodbye-moon:
+    if: success() && needs.hello-world.result == 'success'
+    needs: hello-world
     runs-on: ubuntu-latest
     steps:
       - name: "Goodbye Moon"
