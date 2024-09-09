@@ -11,3 +11,9 @@ jobs:
           echo "Msg 1"
           echo "Msg 2"
           echo "::endgroup::"
+      - name: "Step 1 - setting github env"
+        run: |
+          echo "MY_NODE=production" >> $GITHUB_ENV
+      - name: "Step 2 - using the env"
+        run: |
+          echo $MY_NODE
