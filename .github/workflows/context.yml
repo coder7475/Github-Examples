@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      #   - name: Checkout repository
-      #     uses: actions/checkout@v4
+      - name: My Step
+        env:
+          MY_ACTION: ${{ github.action }}
+        uses: echo "Hello! MY_ACTION"
 
       - name: Print GitHub context
         env:
