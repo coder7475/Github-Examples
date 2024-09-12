@@ -1,0 +1,25 @@
+name: Dependent Workflow
+
+on: push
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Boss
+        run: echo "I am the Boss"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run dependent task
+        run: |
+          echo "This job runs after the primary workflow succeeds"
+          # Add your dependent tasks here
+
+      - name: Another step
+        run: |
+          echo "You can add more steps as needed"
+          # Add more steps for your dependent workflow
